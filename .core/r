@@ -1,0 +1,2 @@
+cp httpd.conf.back httpd.conf
+cp apachectl.back apachectl

@@ -1,2 +1,2 @@
-# jtmsetup
-Script for first time installing termux
+#muxsetup
+A simple script for first time setup termux

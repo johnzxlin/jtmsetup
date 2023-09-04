@@ -1,0 +1,217 @@
+#!/data/data/com.termux/files/usr/bin/bash
+disini="$(pwd)"
+POLOS="\033[0m"
+TEBAL="\033[1m"
+MERAH="\033[38;5;9m"
+HIJAU="\033[32;5;13m"
+YW="\033[33;5;13m"
+BIRUG="\033[34;5;13m"
+PINK="\033[35;5;13m"
+BIRUT="\033[36;5;13m"
+clear
+echo
+echo
+echo -e ""${TEBAL}${BIRUT}BatamHacker @ Dalnet""
+echo -e  "Created by Johnny Lin / JoySolutions"
+echo -e  "Reach me on whatsapp +4593755005"
+echo -e    "instagram @zxlin.joysolutions"               
+echo -e    "joysolutions@gmail.com telegram @cyberkrimsus "                                                                    
+echo -e    "---------------------------------------------------------"
+echo -e  ${POLOS}
+echo
+echo
+echo -e ${TEBAL}${MERAH}
+read -p "Press [Enter] key to install BatamHacker MOTD and theme....."
+echo -e ${POLOS}
+echo
+echo
+cp -r $disini/.core/motd ~/
+cp $disini/.core/termux/* ~/.termux/
+chmod +x ~/motd/init.sh
+cat $disini/.core/profile > /data/data/com.termux/files/usr/etc/profile
+cat $disini/.core/bash.bashrc > /data/data/com.termux/files/usr/etc/bash.bashrc
+cat $disini/.core/bash_completion.sh > /data/data/com.termux/files/usr/etc/profile.d/bash_completion.sh
+chmod +x /data/data/com.termux/files/usr/etc/profile.d/bash_completion.sh
+rm /data/data/com.termux/files/usr/etc/profile.d/motd.sh
+cp $disini/.core/motd.sh /data/data/com.termux/files/usr/etc/profile.d/motd.sh
+chmod +x /data/data/com.termux/files/usr/etc/profile.d/motd.sh
+cat $disini/.core/profile > /data/data/com.termux/files/usr/etc/profile
+echo -e  ${TEBAL}${HIJAU}
+echo -e  "Installing MOTD and Bash Prompt...."
+echo
+echo
+read -t 5 -p "Hold on, system is preparing"
+echo
+echo
+read -p "DONE !!!! Press [Enter] key to install next step ....."
+echo -e ${POLOS}
+echo
+echo
+echo -e  ${TEBAL}${BIRUG}
+echo -e  "Fresh installed Termux from F-Droid ?...."
+echo
+read -t 5 -p "Let's setting up repo"
+echo -e ${POLOS}
+echo
+pkg install x11-repo -y
+echo
+termux-change-repo
+clear
+echo
+echo
+echo
+echo
+echo -e ""${TEBAL}${BIRUT}BatamHacker @ Dalnet""
+echo -e  "Created by Johnny Lin / JoySolutions"
+echo -e  "Reach me on whatsapp +4593755005"
+echo -e    "instagram @zxlin.joysolutions"               
+echo -e    "joysolutions@gmail.com telegram @cyberkrimsus "                                                                    
+echo -e    "---------------------------------------------------------"
+echo -e  ${POLOS}
+echo -e 
+echo -e 
+echo -e  ${TEBAL}${YW}
+echo -e  "Yeah we got the best repo now !!!"
+echo
+read -t 5 -p "Its time to install"
+echo
+echo
+echo -e "${HIJAU}Updateing Termux....$POLOS" 
+echo
+pkg update && pkg upgrade -y
+apt update && apt upgrade -y
+echo
+echo -e "$HIJAU Installing Termux-API....$POLOS" 
+echo
+apt install termux-api -y
+echo
+termux-setup-storage
+echo
+echo -e "$HIJAU Installing C Language....$POLOS" 
+echo
+pkg install clang -y
+echo
+echo -e "$HIJAU Installing wget and curl....$POLOS" 
+echo
+pkg install wget curl -y
+echo
+echo -e "$HIJAU Installing Compress and Uncompressed Tools ....$POLOS" 
+echo
+pkg install zip unzip tar gzip zlib -y
+echo
+echo -e "$HIJAU Installing Text Editing tools....$POLOS" 
+echo
+pkg install nano vim -y
+echo
+echo -e "$HIJAU Installing File Searching....$POLOS" 
+echo
+pkg install which findutils mlocate -y
+updatedb
+echo
+echo -e "$HIJAU Installing PHP ....$POLOS" 
+echo
+pkg install php -y
+echo
+echo -e "$HIJAU Installing NCurses and Utils ....$POLOS" 
+echo
+pkg install ncurses ncurses-utils -y
+echo
+echo -e "$HIJAU Installing Hydra Bruteforce tools....$POLOS" 
+echo
+pkg install thc-hydra -y
+apt install thc-hydra -y
+echo
+echo -e "$HIJAU Installing Python and Needed....$POLOS" 
+echo
+apt install tor -y
+pkg install python -y
+pkg install python2 -y
+pip install requests
+pip3 install requests
+pip install colorama
+pip3 install colorama
+
+  if [ -f /data/data/com.termux/files/usr/bin/lolcat ]; 
+   then 
+       echo
+       echo -e "$HIJAU lolcat installed !....Done" 
+   else 
+       echo -e "$MERAH $TEBAL [!] lolcat not found !" 
+       echo -e "$POLOS"
+       echo
+       echo -e "$YW Installing lolcat" 
+       echo
+      pkg install ruby 
+     gem install lolcat 
+       echo
+       echo -e "$HIJAU $TEBAL installation of lolcat ......DONE !" 
+   fi 
+  
+gem install lolcat 
+  
+ chmod +x *
+echo
+echo -e "$HIJAU $TEBAL installation Finished !"  
+echo 
+echo -e "$HIJAU Installing Android Platform adb fastboot....$POLOS" 
+echo
+pkg install android-tools -y
+echo
+echo -e "$HIJAU Installing Network tools....$POLOS" 
+echo
+pkg install ethtool nmap -y
+echo
+echo -e "$HIJAU Installing Webserver, CGI and Perl....$POLOS" 
+echo
+pkg install php-apache php
+
+sleep 5
+
+htdocs='/sdcard/htdocs'
+if [ ! -d $htdocs ];
+then
+  mkdir $htdocs
+fi
+
+pkg install apache2 -y
+
+rm $PREFIX/etc/apache2/httpd.conf
+
+mv $disini/.core/httpd.conf $PREFIX/etc/apache2/
+
+rm $PREFIX/bin/apachectl
+
+chmod +x $disini/.core/apachectl
+
+mv $disini/.core/apachectl $PREFIX/bin/
+echo
+echo -e "$YW $TEBAL YOU HAVE YOUR OWN WEBSERVER ON PHONE NOW" 
+echo -e "run apachectl and your web address is http://localhost:8080"
+echo -e "$MERAH by Johnny Lin /JoySolutions" 
+echo
+echo -e ${TEBAL}${YW}
+read -p "Press [Enter] key to continue next step ......"
+echo
+echo
+echo
+while true; do
+echo -e "Installing SuperUser tools ROOT ..." 
+echo
+read -p "Do you want to proceed? (y/n) " yn
+echo
+case $yn in 
+	[yY]  ) echo -e "$HIJAU Installing SuperUser and SUDO....$POLOS" ;
+    pkg install tsu -y;
+    cat $disini/sudo > /data/data/com.termux/files/usr/bin/sudo;
+    chmod 700 /data/data/com.termux/files/usr/bin/sudo;
+	break;;
+    [nN]  ) echo -e "$TEBAL $HIJAU Bye Bye...";
+	break;;
+ * ) echo invalid response;;
+esac
+done
+
+echo -e $POLOS
+echo -e "$HIJAU bedaaa...$POLOS" 
+echo
+
